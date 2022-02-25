@@ -92,6 +92,7 @@ function recevoirTemperature(ville) {
         document.querySelector("#humi").textContent = humidity;
         document.querySelector("#wind").textContent = windSpeed;
         document.querySelector("#feels").textContent = feels;
+        document.body.style.setProperty('background', `linear-gradient(90deg, #29f3d8 0%, #2c91f0 25%, #FFF57B 75%,#FA8607 100%)        `;
       } else {
         alert("Un problème est intervenu, merci de revenir plus tard.");
       }

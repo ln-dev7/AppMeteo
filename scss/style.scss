@@ -24,9 +24,7 @@ li {
 }
 
 body {
-  background: -webkit-linear-gradient(to right, #29f3d8, #2c91f0);
-  background: linear-gradient(to right, #29f3d8, #2c91f0);
-  background: url(img/bg.jpg);
+  background: linear-gradient(90deg, #29f3d8 0%, #2c91f0 25%, #FFF57B 75%,#FA8607 100%);
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -80,8 +78,6 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    background: url(img/bg-body.jpg);
-    background-size: cover;
     h1{
       font-size: 4em;
       margin-top: -20px;
