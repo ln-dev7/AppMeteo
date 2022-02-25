@@ -11,33 +11,35 @@
 </head>
 
 <body>
+    <div class="w-background">
+    </div>
     <div class="container">
         <div class="container-title">
             <h3>La Météo du Jour</h3>
             <button id="changer">Changer de ville</button>
         </div>
         <div class="container-body">
-            <h1><span id="temperature-label"></span><span>°C</span></h1>
-            <h4><img src="img/icons/map-pin-line.svg" alt="map"><span id="ville"></span></h4>
+            <h1 class="w-opacity"><span id="temperature-label"></span><span>°C</span></h1>
+            <h4 class="w-opacity delay"><img src="img/icons/map-pin-line.svg" alt="map"><span id="ville"></span></h4>
         </div>
         <div class="container-footer">
             <div class="footer-card">
                 <img src="img/icons/temp.svg" alt="">
-                <div>
+                <div class="w-opacity">
                     <h5><span id="feels"></span><span>°C</span></h5>
                     <h5>Préssenties</h5>
                 </div>
             </div>
             <div class="footer-card">
                 <img src="img/icons/humi.svg" alt="">
-                <div>
+                <div class="w-opacity">
                     <h5><span id="humi"></span><span>%</span></h5>
                     <h5>Humidité</h5>
                 </div>
             </div>
             <div class="footer-card">
                 <img src="img/icons/wind.svg" alt="">
-                <div>
+                <div class="w-opacity">
                     <h5><span id="wind"></span><span>Km/h</span></h5>
                     <h5>Vent</h5>
                 </div>

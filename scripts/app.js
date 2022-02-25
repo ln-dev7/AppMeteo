@@ -1,5 +1,31 @@
 // Key  : dac8cd8abf90c2565292a581ea165b9b
+let tabDelay = document.querySelectorAll('.w-opacity')
 
+function background(temperature) {
+  if (temperature <= 15) {
+    setTimeout(() => {
+      document.body.style.setProperty('background', `linear-gradient(90deg, #2c91f0 ${100 - temperature * 100 / 15}%, #29f3d8 100%, #FFF57B 100%,#FA8607 100%)`)
+    }, 2000);
+    document.querySelector('.w-background').style.opacity = 0;
+    setTimeout(() => {
+      document.querySelector('.w-background').style.setProperty('background', `linear-gradient(90deg, #2c91f0 ${100 - temperature * 100 / 15}%, #29f3d8 100%, #FFF57B 100%,#FA8607 100%)`)
+    }, 750);
+    setTimeout(() => {
+      document.querySelector('.w-background').style.opacity = 1;
+    }, 850);
+  } else {
+    setTimeout(() => {
+      document.body.style.setProperty('background', `linear-gradient(90deg, #29f3d8 0%, #2c91f0 0%, #FFF57B 0%,#FA8607 ${100 - (temperature - 15) * 100 / 15}%)`)
+    }, 2000);
+    document.querySelector('.w-background').style.opacity = 0;
+    setTimeout(() => {
+      document.querySelector('.w-background').style.setProperty('background', `linear-gradient(90deg, #29f3d8 0%, #2c91f0 0%, #FFF57B 0%,#FA8607 ${100 - (temperature - 15) * 100 / 15}%)`)
+    }, 750);
+    setTimeout(() => {
+      document.querySelector('.w-background').style.opacity = 1;
+    }, 850);
+  }
+}
 let villeChoisie;
 
 if ("geolocation" in navigator) {
@@ -22,13 +48,13 @@ if ("geolocation" in navigator) {
         if (requete.readyState === XMLHttpRequest.DONE) {
           if (requete.status === 200) {
             let reponse = requete.response;
-            // console.log(reponse);
             let temperature = reponse.main.temp;
             let ville = reponse.name;
             let feels = reponse.main.feels_like;
             let humidity = reponse.main.humidity;
             let windSpeed = reponse.wind.speed;
-            // console.log(temperature);
+            background(temperature)
+
             document.querySelector("#temperature-label").textContent =
               temperature;
             document.querySelector("#ville").textContent = ville;
@@ -86,16 +112,27 @@ function recevoirTemperature(ville) {
         let feels = reponse.main.feels_like;
         let humidity = reponse.main.humidity;
         let windSpeed = reponse.wind.speed;
-        // console.log(temperature);
-        document.querySelector("#temperature-label").textContent = temperature;
-        document.querySelector("#ville").textContent = ville;
-        document.querySelector("#humi").textContent = humidity;
-        document.querySelector("#wind").textContent = windSpeed;
-        document.querySelector("#feels").textContent = feels;
-        document.body.style.setProperty('background', `linear-gradient(90deg, #29f3d8 0%, #2c91f0 25%, #FFF57B 75%,#FA8607 100%)        `;
+        background(temperature)
+        tabDelay.forEach(element => {
+          element.style.opacity = 0;
+        });
+        setTimeout(() => {
+          document.querySelector("#temperature-label").textContent = temperature;
+          document.querySelector("#ville").textContent = ville;
+          document.querySelector("#humi").textContent = humidity;
+          document.querySelector("#wind").textContent = windSpeed;
+          document.querySelector("#feels").textContent = feels;
+          setTimeout(() => {
+            tabDelay.forEach(element => {
+              element.style.opacity = 1;
+            });
+          }, 100);
+        }, 750);
+
       } else {
         alert("Un problème est intervenu, merci de revenir plus tard.");
       }
     }
   };
 }
+
