@@ -12,14 +12,37 @@
 
 <body>
     <div class="container">
-        <h2>
-            La Météo du Jour
-        </h2>
-        <div class="container">
-            <h1 id="ville"></h1>
-            <h3 id="temperature"><span id="temperature-label">xxx</span>°C</h3>
+        <div class="container-title">
+            <h3>La Météo du Jour</h3>
+            <button id="changer">Changer de ville</button>
         </div>
-        <button id="changer">Changer de ville</button>
+        <div class="container-body">
+            <h1><span id="temperature-label"></span><span>°C</span></h1>
+            <h4><img src="img/icons/map-pin-line.svg" alt="map"><span id="ville"></span></h4>
+        </div>
+        <div class="container-footer">
+            <div class="footer-card">
+                <img src="img/icons/temp.svg" alt="">
+                <div>
+                    <h5><span id="feels"></span><span>°C</span></h5>
+                    <h5>Préssenties</h5>
+                </div>
+            </div>
+            <div class="footer-card">
+                <img src="img/icons/humi.svg" alt="">
+                <div>
+                    <h5><span id="humi"></span><span>%</span></h5>
+                    <h5>Humidité</h5>
+                </div>
+            </div>
+            <div class="footer-card">
+                <img src="img/icons/wind.svg" alt="">
+                <div>
+                    <h5><span id="wind"></span><span>Km/h</span></h5>
+                    <h5>Vent</h5>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

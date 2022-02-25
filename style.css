@@ -21,8 +21,9 @@ li {
 }
 
 body {
-  background: #5c258d;
   background: linear-gradient(to right, #29f3d8, #2c91f0);
+  background: url(img/bg.jpg);
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -35,12 +36,115 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #3333334b;
+  outline: none;
+  overflow: hidden;
+  width: 400px;
+  height: 500px;
 }
-.container button {
+.container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid #52525244;
+}
+.container-title h3 {
+  text-align: center;
+  color: #2c91f0;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.container-title button {
+  width: 100%;
   border: 1px solid #fff;
   padding: 1rem;
-  margin: 1rem 0;
   background: #b2dffb4d;
   cursor: pointer;
   font-weight: bold;
+}
+.container-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: url(img/bg-body.jpg);
+  background-size: cover;
+}
+.container-body h1 {
+  font-size: 4em;
+  margin-top: -20px;
+}
+.container-body h1 span {
+  font-weight: bold;
+}
+.container-body h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+.container-body h4 img {
+  width: 20px;
+  margin-right: 5px;
+}
+.container-body h4 span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.container-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #52525244;
+}
+.container-footer .footer-card {
+  border-left: 1px solid #52525244;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 133.3333333333px;
+}
+.container-footer .footer-card div {
+  margin-left: 3px;
+}
+.container-footer .footer-card div h5 {
+  color: #333;
+  font-size: 12px;
+}
+.container-footer .footer-card div h5 span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.container-footer .footer-card:hover {
+  background: #b2dffb4d;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 95%;
+  }
+  .container-footer {
+    flex-wrap: wrap;
+  }
+  .container-footer .footer-card {
+    width: 100%;
+    border-left: none;
+    border-bottom: 1px solid #52525244;
+  }
+  .container-footer .footer-card div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-footer .footer-card div h5 {
+    margin-left: 3px;
+  }
 }/*# sourceMappingURL=style.css.map */
