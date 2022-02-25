@@ -35,8 +35,8 @@ Ce code est un extrait de comment recuperer les informations grace a l'API
     }
   }`
 
-  `temperature` : c'est la temperature dans la ville
-  `ville` : c'est le nom de la ville
-  `feels` : c'est la temperature ressentie
-  `humidity` : c'est l'humidite
-  `windSpeed` : c'est la vitesse du vent
+  `temperature` : c'est la temperature dans la ville <br>
+  `ville` : c'est le nom de la ville <br>
+  `feels` : c'est la temperature ressentie <br>
+  `humidity` : c'est l'humidite <br>
+  `windSpeed` : c'est la vitesse du vent <br>
