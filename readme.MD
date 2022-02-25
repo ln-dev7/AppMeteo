@@ -15,12 +15,13 @@ Mais vu que l'on veut connaitre la ville de l'utilisateur au cas ou il active la
 <br>
 Cet API nous retourne un JSON avec beaucoup d'information mais on utilisera juste quelques ...
 <br>
+Ce code est un extrait de comment recuperer les informations grace a l'API
+
 `const url = " ... ";
   let requete = new XMLHttpRequest();
   requete.open("GET", url);
   requete.responseType = "json";
   requete.send();
-  
   requete.onload = function () {
     if (requete.readyState === XMLHttpRequest.DONE) {
       if (requete.status === 200) { 
@@ -32,9 +33,8 @@ Cet API nous retourne un JSON avec beaucoup d'information mais on utilisera just
         let windSpeed = reponse.wind.speed;
       }
     }
-  }
-`
-<br>
+  }`
+
   `temperature` : c'est la temperature dans la ville
   `ville` : c'est le nom de la ville
   `feels` : c'est la temperature ressentie
