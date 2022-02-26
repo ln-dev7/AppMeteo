@@ -3,7 +3,6 @@
 *,
 ::before,
 ::after {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: sans-serif;
     color: #252525;
@@ -11,9 +10,6 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none
 }
 
@@ -37,11 +33,7 @@ body,
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     overflow-x: hidden
 }
@@ -60,18 +52,9 @@ body {
 }
 
 .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     background: #fff;
     border-radius: 5px;
@@ -82,18 +65,9 @@ body {
 }
 
 .container-title {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
     border-bottom: 1px solid #52525244
@@ -119,18 +93,9 @@ body {
     background: url(../img/bg-body.jpg);
     background-size: cover;
     height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     width: 100%
 }
@@ -149,23 +114,13 @@ body {
 .container-body h1 span:first-child {
     width: 160px;
     margin: 0 5px 0 0;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
     justify-content: flex-end
 }
 
 .container-body h4 {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     text-transform: uppercase
 }
@@ -182,14 +137,8 @@ body {
 
 .container-footer {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     border-top: 1px solid #52525244
 }
@@ -200,11 +149,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     width: calc(400px / 3)
 }
@@ -221,7 +166,6 @@ body {
 .container-footer .footer-card div h5 span {
     font-size: 14px;
     font-weight: bold;
-    -webkit-transition: 1s;
     transition: 1s
 }
 
@@ -235,7 +179,6 @@ body {
     }
 
     .container-footer {
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap
     }
 
@@ -249,11 +192,7 @@ body {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center
     }
 
@@ -263,6 +202,5 @@ body {
 }
 
 .w-opacity {
-    -webkit-transition: 0.7s;
     transition: 0.7s
 }
