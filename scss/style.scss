@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap");
+
+$blue: #2c91f0;
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #252525;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    user-select: none;
+}
+span {
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+body,.w-background {
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+body {
+    transition:  1s;
+}
+.w-background  {
+    width: 100%;
+    position :absolute;
+    transition: 0.7s;
+    z-index: -1;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 5px;
+    outline: none;
+    overflow: hidden;
+    width: 400px;
+    height: 500px;
+
+    &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        border-bottom: 1px solid #52525244;
+
+        h3 {
+            text-align: center;
+            color: $blue;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        button {
+            width: 100%;
+            border: 1px solid #fff;
+            padding: 1rem;
+            background: #b2dffb4d;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+
+    &-body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: url(../img/bg-body.jpg);
+        background-size: cover;
+        h1 {
+            font-size: 4em;
+            margin-top: -20px;
+            span {
+                font-weight: bold;
+                transition: 1s;
+                &:first-child {
+                    width: 160px;
+                    margin: 0 5px 0 0;
+                    display: inline-flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
+        h4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            img {
+                width: 20px;
+                margin-right: 5px;
+            }
+            span {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+    &-footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #52525244;
+        .footer-card {
+            border-left: 1px solid #52525244;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(400px / 3);
+            div {
+                margin-left: 3px;
+                h5 {
+                    color: #333;
+                    font-size: 12px;
+                    span {
+                        font-size: 14px;
+                        font-weight: bold;
+                        transition: 1s;
+                    }
+                }
+            }
+            &:hover {
+                background: #b2dffb4d;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        width: 95%;
+        &-footer {
+            flex-wrap: wrap;
+            .footer-card {
+                width: 100%;
+                border-left: none;
+                border-bottom: 1px solid #52525244;
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    h5 {
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+.w-opacity {
+    transition: 0.7s;
+}
