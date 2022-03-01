@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 $blue: #2c91f0;
 
@@ -177,3 +177,7 @@ body {
 .w-opacity {
     transition: 0.7s;
 }
+
+@import "./include/modal.scss";
+@import "./include/button.scss";
+@import "./include/textfield.scss";

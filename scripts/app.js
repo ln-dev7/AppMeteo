@@ -1,4 +1,5 @@
 // Key  : dac8cd8abf90c2565292a581ea165b9b
+const DEFAULT_CITY = "DOUALA"
 let tabDelay = document.querySelectorAll('.w-opacity')
 
 function background(temperature) {
@@ -28,65 +29,69 @@ function background(temperature) {
 }
 let villeChoisie;
 
-if ("geolocation" in navigator) {
-  navigator.geolocation.watchPosition(
-    (position) => {
-      const url =
-        "https://api.openweathermap.org/data/2.5/weather?lat=" +
-        position.coords.latitude +
-        "&lon=" +
-        position.coords.longitude +
-        "&appid=dac8cd8abf90c2565292a581ea165b9b&units=metric";
-
-      let requete = new XMLHttpRequest(); // Nous créons un objet qui nous permettra de faire des requêtes
-      requete.open("GET", url); // Nous récupérons juste des données
-      requete.responseType = "json"; // Nous attendons du JSON
-      requete.send(); // Nous envoyons notre requête
-
-      // Dès qu'on reçoit une réponse, cette fonction est executée
-      requete.onload = function () {
-        if (requete.readyState === XMLHttpRequest.DONE) {
-          if (requete.status === 200) {
-            let reponse = requete.response;
-            let temperature = reponse.main.temp;
-            let ville = reponse.name;
-            let feels = reponse.main.feels_like;
-            let humidity = reponse.main.humidity;
-            let windSpeed = reponse.wind.speed;
-            background(temperature)
-
-            document.querySelector("#temperature-label").textContent =
-              temperature;
-            document.querySelector("#ville").textContent = ville;
-            document.querySelector("#humi").textContent = humidity;
-            document.querySelector("#wind").textContent = windSpeed;
-            document.querySelector("#feels").textContent = feels;
-          } else {
-            alert("Un problème est intervenu, merci de revenir plus tard.");
-          }
-        }
-      };
-    },
-    erreur,
-    options
-  );
-
-  var options = {
-    enableHighAccuracy: true,
-  };
+if (localStorage.getItem("ville")) {
+  recevoirTemperature(localStorage.getItem("ville"))
 } else {
-  villeChoisie = "saint-saulve";
-  recevoirTemperature(villeChoisie);
+  if ("geolocation" in navigator) {
+    navigator.geolocation.watchPosition(
+      (position) => {
+        const url =
+          "https://api.openweathermap.org/data/2.5/weather?lat=" +
+          position.coords.latitude +
+          "&lon=" +
+          position.coords.longitude +
+          "&appid=dac8cd8abf90c2565292a581ea165b9b&units=metric";
+
+        let requete = new XMLHttpRequest(); // Nous créons un objet qui nous permettra de faire des requêtes
+        requete.open("GET", url); // Nous récupérons juste des données
+        requete.responseType = "json"; // Nous attendons du JSON
+        requete.send(); // Nous envoyons notre requête
+
+        // Dès qu'on reçoit une réponse, cette fonction est executée
+        requete.onload = function () {
+          if (requete.readyState === XMLHttpRequest.DONE) {
+            if (requete.status === 200) {
+              let reponse = requete.response;
+              let temperature = reponse.main.temp;
+              let ville = reponse.name;
+              let feels = reponse.main.feels_like;
+              let humidity = reponse.main.humidity;
+              let windSpeed = reponse.wind.speed;
+              background(temperature)
+
+              document.querySelector("#temperature-label").textContent =
+                temperature;
+              document.querySelector("#ville").textContent = ville;
+              document.querySelector("#humi").textContent = humidity;
+              document.querySelector("#wind").textContent = windSpeed;
+              document.querySelector("#feels").textContent = feels;
+            } else {
+              alert("Un problème est intervenu, merci de revenir plus tard.");
+            }
+          }
+        };
+      },
+      erreur,
+      options
+    );
+
+    var options = {
+      enableHighAccuracy: true,
+    };
+  } else {
+    villeChoisie = "saint-saulve";
+    recevoirTemperature(villeChoisie);
+  }
 }
 
 let changerDeVille = document.querySelector("#changer");
 changerDeVille.addEventListener("click", () => {
-  villeChoisie = prompt("Quelle ville souhaitez-vous voir ?");
-  recevoirTemperature(villeChoisie);
+  getUserCity()
+    .then(ville => recevoirTemperature(ville))
 });
 
 function erreur() {
-  villeChoisie = "Douala";
+  villeChoisie = DEFAULT_CITY;
   recevoirTemperature(villeChoisie);
 }
 
@@ -136,3 +141,31 @@ function recevoirTemperature(ville) {
   };
 }
 
+const getUserCity = async () => {
+  return new Promise((resolve, reject) => {
+    const modal = document.querySelector("#modal")
+    const accept = document.querySelector("#accept")
+    const close = document.querySelector("#close")
+    modal.style.display = "flex"
+    modal.removeAttribute("aria-hidden")
+    modal.setAttribute("aria-modal", true)
+    let city = DEFAULT_CITY
+
+    accept.addEventListener("click", () => {
+      const userCity = document.querySelector("#city").value
+      if (userCity.length > 1)
+        city = userCity
+      modal.setAttribute("aria-hidden", true)
+      modal.setAttribute("aria-modal", false)
+      localStorage.setItem("ville", city)
+      resolve(city)
+
+      modal.style.display = "none"
+    })
+
+    close.addEventListener("click", () => {
+      modal.style.display = "none"
+    })
+
+  })
+}

@@ -1,0 +1,33 @@
+$color-primary: #0052CC;
+$color-secondary:  #c10d67;
+
+.btn{
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all linear 400ms;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.btn-primary{
+    color: #fff;
+    background: $color-primary;
+    border: solid 2px darken($color: $color-primary, $amount: 5);
+    &:hover{
+        background: lighten($color: $color-primary, $amount: 15);
+        border: solid 2px lighten($color: $color-primary, $amount: 20);
+    }
+}
+
+.btn-secondary{
+    color: #fff;
+    background: $color-secondary;
+    border: solid 2px darken($color: $color-secondary, $amount: 5);
+    &:hover{
+        background: lighten($color: $color-secondary, $amount: 15);
+        border: solid 2px lighten($color: $color-secondary, $amount: 20);
+    }
+}
