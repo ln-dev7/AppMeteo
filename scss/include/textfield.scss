@@ -1,0 +1,23 @@
+.textfield-container{
+    border: solid 1px rgb(0 0 0/10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .field-icon{
+        width: 50px;
+        height: auto;
+    }
+    .textfield{
+        width: 100%;
+        outline: none;
+        padding: 20px;
+        border: none;
+        transition: all 400ms ease-in-out;
+        border-radius: 4px;
+        color: rgb(0 0 0/80%);
+        font-size: 1.2rem;
+        &:focus .textfield-container{
+            border: solid 1px rgb(0 0 0/20%);
+        }
+    }
+}
